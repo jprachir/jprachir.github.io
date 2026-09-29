@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact — Prachi Jadhav</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="index.html">PJ</a>
+        <nav>
+          <a href="projects.html">Projects</a>
+          <a href="services.html">Services</a>
+          <a href="talks.html">Invited Talks</a>
+          <a href="contact.html">Contact</a>
+          <a href="blogs.html">Blogs</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="section card contact-card">
+          <div class="section-heading">
+            <p class="eyebrow">Say hello</p>
+            <h2>Contact</h2>
+          </div>
+
+          <form id="contact-form" class="contact-form">
+            <label>
+              Name
+              <input type="text" name="name" placeholder="Your name" required />
+            </label>
+
+            <label>
+              Email
+              <input type="email" name="email" placeholder="you@example.com" required />
+            </label>
+
+            <label>
+              Message
+              <textarea name="message" rows="5" placeholder="Tell me a bit about your project..." required></textarea>
+            </label>
+
+            <button type="submit" class="button primary">Send message</button>
+            <p class="form-note" id="form-note">
+              For research collaborations, publications, talks, or project inquiries.
+            </p>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

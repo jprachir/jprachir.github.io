@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog Post One — Prachi Jadhav</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="index.html#home">PJ</a>
+        <nav><a href="blogs.html">Back to Blogs</a></nav>
+      </header>
+      <main>
+        <section class="section card info-card blog-post">
+          <p class="eyebrow">Draft Post</p>
+          <h1>
+            Vibe Code: the Gap Between Intent and LLM's Implementation
+          </h1>
+
+          <p>
+            I am a bit late in publishing this experience with the O3-mini-high
+            reasoning model, but this blog captures nuances that matter while vibe coding.
+          </p>
+
+          <p>
+            I was new to the HPC domain, and my goal was simple: implement a
+            First Come First Serve (FCFS) scheduling policy so I could compare it
+            against other strategies e.g., Shortest Job First (SJF), including LLM-based schedulers. FCFS
+            schedules jobs in arrival order, subject to resource availability,
+            without reordering or prioritization.
+          </p>
+
+          <h2>What the LLM Actually Built</h2>
+          <p>
+            Across multiple iterations, O3-mini-high produced several schedulers.
+            At first glance, they all looked aligned with pure FCFS. Closer inspection
+            revealed three distinct behaviors.
+          </p>
+
+          <h3>1. FCFS with Opportunistic Scheduling (Near-Pure FCFS)</h3>
+          <p>
+            Jobs were processed in submission order and scheduled as soon as
+            resources became available. There was no reordering, and jobs were not
+            skipped for smaller ones. This was the closest to strict FCFS.
+          </p>
+
+          <h3>2. Greedy FIFO Backfilling</h3>
+          <p>
+            The scheduler scanned the waiting queue in arrival order and scheduled
+            any job that fit, allowing later jobs to bypass earlier blocked jobs.
+            This improved utilization and throughput, but it was no longer strict
+            FCFS.
+          </p>
+          <ul>
+            <li>Earlier jobs did not strictly block the queue.</li>
+            <li>Smaller jobs behind them could slip through.</li>
+            <li>Idle resources were backfilled opportunistically.</li>
+          </ul>
+
+          <h3>3. Size-Based Greedy Backfilling</h3>
+          <p>
+            In a few cases, the model introduced sorting based on CPU, memory, and
+            walltime, which prioritized smaller and shorter jobs.
+          </p>
+          <ul>
+            <li>Higher utilization and throughput.</li>
+            <li>Reduced fairness for larger jobs.</li>
+            <li>Clear deviation from FCFS.</li>
+          </ul>
+          <p>
+            This is essentially a greedy packing heuristic, which is efficient but not FCFS.
+          </p>
+
+          <h2>The Confusing Part</h2>
+          <p>
+            I evaluated all implementations using performance metrics like wait time, turnaround time,
+            utilization, throughput, and Jain's fairness index. Different
+            implementations produced conflicting outcomes, despite originating
+            from the same prompt. The model's interpretation of the prompt and its internal heuristics
+            led to emergent behaviors that were not explicitly intended. 
+          </p>
+
+          <h2>Key Insights</h2>
+          <ul>
+            <li>
+              LLMs optimize for syntactic correctness and local heuristics, not
+              formal policy guarantees.
+            </li>
+            <li>
+              Without explicit constraints, LLMs drift toward efficiency-oriented
+              heuristics such as backfilling.
+            </li>
+            <li>
+              Small structural implementation changes can lead to very different scheduling
+              behavior.
+            </li>
+            <li>
+              Domain-relevant metrics and baseline comparisons are essential for
+              validation.
+            </li>
+          </ul>
+
+          <p>
+            The key gap is one has to consider what AI is building for you within technical constraints. 
+            The model can produce code that behaves correctly but the developer has to ensure that it does implement the intended behavior.
+          </p>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
