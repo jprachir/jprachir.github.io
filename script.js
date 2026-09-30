@@ -15,7 +15,7 @@ if (form) {
       `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
     );
 
-    window.location.href = `mailto:hello@yourdomain.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:jprachir@gmail.com?subject=${subject}&body=${body}`;
     note.textContent = 'Your email app should open with the message drafted.';
   });
 }

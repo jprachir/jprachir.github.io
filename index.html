@@ -17,76 +17,72 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="page-shell">
-      <header class="topbar">
-        <a class="brand" href="#home">PJ</a>
-        <nav>
+    <div class="page-shell home-page">
+      <header class="home-topbar">
+        <a class="brand" href="#home" aria-label="Prachi Jadhav home">PJ</a>
+        <nav class="home-nav" aria-label="Main navigation">
           <a href="projects.html">Projects</a>
           <a href="services.html">Services</a>
           <a href="talks.html">Invited Talks</a>
-          <a href="contact.html">Contact</a>
           <a href="blogs.html">Blogs</a>
+          <a href="contact.html">Contact</a>
         </nav>
       </header>
 
-      <main id="home">
-        <section class="hero card">
-          <div class="hero-copy">
-            <p class="eyebrow">PhD Researcher • Agentic AI for HPC</p>
+      <div class="home-shell">
+        <aside class="profile-sidebar">
+          <img src="prachi_web.jpg" alt="Prachi Jadhav" class="avatar sidebar-avatar" />
+          <div class="profile-identity">
+            <p class="eyebrow">PhD Researcher · Agentic AI for HPC</p>
             <h1>Prachi Jadhav</h1>
             <p class="affiliation">
               <a href="https://utk.edu" target="_blank" rel="noreferrer">University of Tennessee, Knoxville</a>
-              &nbsp;·&nbsp;
+              <span aria-hidden="true">·</span>
               <a href="https://www.ornl.gov" target="_blank" rel="noreferrer">Oak Ridge National Laboratory</a>
             </p>
-            <div class="profile-links">
-              <a href="https://github.com/jprachir" target="_blank" rel="noreferrer">
-                <span class="link-badge" aria-hidden="true">
-                  <img src="images/github_logo.svg" alt="" class="link-icon" />
-                </span>
-              </a>
-              <a href="https://scholar.google.com/citations?user=kAPRdQwAAAAJ&amp;hl=en" target="_blank" rel="noreferrer">
-                <span class="link-badge" aria-hidden="true">
-                  <img src="images/Google_Scholar.svg" alt="" class="link-icon" />
-                </span>
-              </a>
-              <a href="blogs.html" rel="noreferrer">
-                <span class="link-badge" aria-hidden="true">
-                  <img src="images/blogs.svg" alt="" class="link-icon" />
-                </span>
-              </a>
-            </div>
+            <p class="availability"><span class="dot"></span>Open to research collaborations.</p>
           </div>
 
-          <div class="hero-visual">
-            <img src="prachi_web.jpg" alt="Illustrated avatar" class="avatar" />
-            <div class="note">
-              <span class="dot"></span>
-              Open to research collaborations
-            </div>
+          <div class="profile-links" aria-label="Professional profiles">
+            <a href="https://github.com/jprachir" target="_blank" rel="noreferrer" aria-label="GitHub">
+              <span class="link-badge" aria-hidden="true">
+                <img src="images/github_logo.svg" alt="" class="link-icon" />
+              </span>
+            </a>
+            <a href="https://scholar.google.com/citations?user=kAPRdQwAAAAJ&amp;hl=en" target="_blank" rel="noreferrer" aria-label="Google Scholar">
+              <span class="link-badge" aria-hidden="true">
+                <img src="images/Google_Scholar.svg" alt="" class="link-icon" />
+              </span>
+            </a>
           </div>
-        </section>
+        </aside>
 
-        <section class="intro-box card">
-          <p>
-            I’m a PhD researcher working on AI-driven resource management for supercomputing systems. My work focuses on designing intelligent, multi-agent methods that can coordinate, adapt to dynamic workloads, and make better decisions than traditional rule-based schedulers. 
-            <!-- Advisor: Dr. Fred Suter -->
-            <!-- Previous advisor: Dr. Prasanna Balaprakash -->
-          </p>
-          <p>
-            I build simulation environments and testbeds to evaluate how these systems improve efficiency, fairness, and reliability in large-scale computing—laying the groundwork for more autonomous and scalable supercomputers.
-          </p>
-          <p>
-            At Stacklok, I worked as an ML Research Software Engineer, focusing on the AI for security domain, building models for classification and anomaly detection in software and system-level data. I focused on designing scalable pipelines and improving detection accuracy for real-world security use cases.
-          </p>
-          <p>
-            Previously, I completed my MS in Computer Science at the University of Memphis. 
-            In my master’s thesis under Dr. Deepak Venugopal, I studied bias in deep generative models such as Variational Autoencoders and PixelCNN++, and its impact on downstream tasks like classification. 
-            I developed an importance sampling approach to reduce bias in generated data and improve sample quality. 
-            Building on this, I designed a semi-supervised learning pipeline using semantic loss to enhance classification performance with limited labeled data.
-          </p>
-        </section>
-      </main>
+        <span class="panel-divider" aria-hidden="true"></span>
+
+        <main class="home-content" id="home">
+          <section class="about-section">
+            <p class="eyebrow">Research · Systems · AI</p>
+            <h2>About Me</h2>
+            <p>
+              I’m a PhD researcher working on AI-driven resource management for supercomputing systems. My work focuses on designing intelligent, multi-agent methods that can coordinate, adapt to dynamic workloads, and make better decisions than traditional rule-based schedulers.
+              <!-- Advisor: Dr. Fred Suter -->
+              <!-- Previous advisor: Dr. Prasanna Balaprakash -->
+            </p>
+            <p>
+              I build simulation environments and testbeds to evaluate how these systems improve efficiency, fairness, and reliability in large-scale computing—laying the groundwork for more autonomous and scalable supercomputers.
+            </p>
+            <p>
+              At Stacklok, I worked as an ML Research Software Engineer, focusing on the AI for security domain, building models for classification and anomaly detection in software and system-level data. I focused on designing scalable pipelines and improving detection accuracy for real-world security use cases.
+            </p>
+            <p>
+              Previously, I completed my MS in Computer Science at the University of Memphis.
+              In my master’s thesis under Dr. Deepak Venugopal, I studied bias in deep generative models such as Variational Autoencoders and PixelCNN++, and its impact on downstream tasks like classification.
+              I developed an importance sampling approach to reduce bias in generated data and improve sample quality.
+              Building on this, I designed a semi-supervised learning pipeline using semantic loss to enhance classification performance with limited labeled data.
+            </p>
+          </section>
+        </main>
+      </div>
     </div>
 
     <script src="script.js"></script>
